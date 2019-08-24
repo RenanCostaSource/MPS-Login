@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author Renan Costa
  */
-public class User implements Serializable {
+public class User implements Serializable,Comparable<User> {
     private String login;
     private String pass;
 
@@ -25,6 +25,11 @@ public class User implements Serializable {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    @Override
+    public int compareTo(User o) {
+return this.login.compareTo(o.getLogin());
     }
     
 }

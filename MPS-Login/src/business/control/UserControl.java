@@ -3,6 +3,7 @@ package business.control;
 
 import business.model.User;
 import exceptions.userSignInException;
+import java.util.Collections;
 import java.util.TreeMap;
 
 /**
@@ -15,6 +16,9 @@ public class UserControl {
 
     public UserControl(TreeMap usuarios) {
         this.users = usuarios;
+    }
+    public UserControl() {
+        this.users = new TreeMap();
     }
    /**
     * 

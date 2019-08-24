@@ -14,12 +14,15 @@ import java.io.IOException;
  */
 public class Main {
      public static void main(String[] args) throws userSignInException, IOException, ClassNotFoundException {
-         UserControl usuarios = new UserControl();
-         usuarios.addUser("login", "passewqsdef12");
-         usuarios.addUser("logino", "pass12qweqwe");
          UserPersistence salvador = new UserPersistence();
+         UserControl usuarios = new UserControl(salvador.loadUsers());
+        usuarios.addUser("betanisa", "pass12qweqwe");
+         usuarios.addUser("alfred", "passewqsdef12");
+         
+         
          salvador.saveUsers(usuarios.listAll());
         salvador.loadUsers();
+        
         
      }
 }

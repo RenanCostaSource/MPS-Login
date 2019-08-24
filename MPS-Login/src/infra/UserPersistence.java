@@ -27,7 +27,7 @@ public class UserPersistence {
                      if(usuario.getLogin().equals("F1n4l!@#$%")){//Checa eof
                i=false;
            }else{
-                         
+                         System.out.println(usuario.getLogin());
            users.put(usuario.getLogin(),usuario);
            }
         }
