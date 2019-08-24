@@ -10,7 +10,7 @@ import sun.misc.IOUtils;
  * @author Renan Costa
  */
 public class UserPersistence {
-    private File arquivo = new File ("login.txt");
+    private File arquivo = new File ("login.dat");
     
     /**
      * resgata usuários de arquivo 
@@ -23,6 +23,7 @@ public class UserPersistence {
         User usuario=new User();
         boolean i=true;
         while(i){
+        
            usuario = (User) objectinput.readObject();
                      if(usuario.getLogin().equals("F1n4l!@#$%")){//Checa eof
                i=false;

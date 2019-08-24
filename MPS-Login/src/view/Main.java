@@ -15,7 +15,7 @@ import java.io.IOException;
 public class Main {
      public static void main(String[] args) throws userSignInException, IOException, ClassNotFoundException {
          UserPersistence salvador = new UserPersistence();
-         UserControl usuarios = new UserControl(salvador.loadUsers());
+         UserControl usuarios = new UserControl();
         usuarios.addUser("betanisa", "pass12qweqwe");
          usuarios.addUser("alfred", "passewqsdef12");
          
