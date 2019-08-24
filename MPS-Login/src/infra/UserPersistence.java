@@ -2,7 +2,7 @@ package infra;
 import business.model.User;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 import sun.misc.IOUtils;
 /**
@@ -16,8 +16,8 @@ public class UserPersistence {
      * resgata usuários de arquivo 
      * @return users  
      */
-    public HashMap<String,User> loadUsers() throws FileNotFoundException, IOException, ClassNotFoundException{
-        HashMap<String,User> users = new HashMap<String,User>();
+    public TreeMap<String,User> loadUsers() throws FileNotFoundException, IOException, ClassNotFoundException{
+        TreeMap<String,User> users = new TreeMap<String,User>();
         FileInputStream input = new FileInputStream(arquivo);
         ObjectInputStream objectinput = new ObjectInputStream(input);
         User usuario=new User();
@@ -43,7 +43,7 @@ public class UserPersistence {
      * Salva usuários no arquivo
      * @param users 
      */
-    public void saveUsers(HashMap<String,User> users){
+    public void saveUsers(TreeMap<String,User> users){
         int i;
     
     

@@ -20,5 +20,6 @@ public class Main {
          UserPersistence salvador = new UserPersistence();
          salvador.saveUsers(usuarios.listAll());
         salvador.loadUsers();
+        
      }
 }

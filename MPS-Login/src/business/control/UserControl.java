@@ -3,7 +3,7 @@ package business.control;
 
 import business.model.User;
 import exceptions.userSignInException;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  *
@@ -11,10 +11,10 @@ import java.util.HashMap;
  */
 public class UserControl {
     
-    private HashMap<String,User> users;
+    private TreeMap<String,User> users;
 
-    public UserControl() {
-        this.users = new HashMap<>();
+    public UserControl(TreeMap usuarios) {
+        this.users = usuarios;
     }
    /**
     * 
@@ -65,8 +65,8 @@ public class UserControl {
      * 
      * @return Lista de todos usuários cadastrados
      */
-    public HashMap<String,User> listAll(){
-        HashMap<String,User> users = this.users;
+    public TreeMap<String,User> listAll(){
+        TreeMap<String,User> users = this.users;
         
         return users;
     }
