@@ -15,6 +15,8 @@ public class UserPersistence {
     /**
      * resgata usuários de arquivo 
      * @return users  
+     * @throws java.io.FileNotFoundException  
+     * @throws java.lang.ClassNotFoundException  
      */
     public TreeMap<String,User> loadUsers() throws FileNotFoundException, IOException, ClassNotFoundException{
         TreeMap<String,User> users = new TreeMap<String,User>();
