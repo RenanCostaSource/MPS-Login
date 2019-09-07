@@ -45,6 +45,9 @@ public class MoleculeDao {
             input.close();
             objectinput.close();
     }
+    public MoleculeDao(int i){
+        mols= new ArrayList<Molecule>();
+    }
     
     
     //Instanciar com esse método para ser realmente um singleton
@@ -66,9 +69,14 @@ public class MoleculeDao {
         return null;
     }
     
+    public List<Molecule> findAll(){
+        return mols;
+    }
+    
     
     public Molecule create(Molecule mol){
-        
+        Molecule ultima=mols.get(mols.size()-2);
+       mol.setId(ultima.getId()+1);
         mols.add(mol);
         toFile();
         return mol;
