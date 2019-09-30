@@ -20,7 +20,7 @@ import java.util.Map;
  * factory pattern: create product object(Molecule)
  * utiliza tambem Singleton pattern
  */
-public class MoleculeDao {
+public class MoleculeDao extends Dao<Molecule>{
     private static MoleculeDao instancia;
     private final File arquivo = new File ("molecules.dat");
     private List<Molecule> mols;
@@ -57,7 +57,8 @@ public class MoleculeDao {
         }
         return instancia;
     }
-    
+  
+    @Override
     public Molecule find(int id){
         Molecule mol;
         for(Molecule m:mols){
@@ -69,36 +70,35 @@ public class MoleculeDao {
         return null;
     }
     
+    @Override
     public List<Molecule> findAll(){
         return mols;
     }
     
-    
-    public Molecule create(Molecule mol){
+    @Override
+    public int create(Molecule mol){
         Molecule ultima=mols.get(mols.size()-2);
        mol.setId(ultima.getId()+1);
         mols.add(mol);
         toFile();
-        return mol;
+        return mol.getId();
     }
-    
-     public Molecule delete(int id){
+    @Override
+     public void delete(int id){
         for(Molecule m:mols){
             if(id==m.getId()){
                 mols.remove(m);
                 toFile();
-                return m;
+                
             }
         }
-        
-        return null;
     }
-     
-      public Molecule edit(int id, Molecule mol){
+       @Override
+      public void edit(int id,Molecule mol){
         Molecule orig= find(id);
         mols.set(mols.indexOf(orig), mol);
           toFile();
-        return mol;
+        
     }
     
       private void toFile(){//mantem arquivo atualizado apos cada operação, não o ideal para sistemas concorrentes
@@ -125,5 +125,7 @@ public class MoleculeDao {
         System.err.println(e.getMessage());
     }
 }  
+
+    
       
 }
