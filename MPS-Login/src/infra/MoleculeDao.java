@@ -100,6 +100,12 @@ public class MoleculeDao extends Dao<Molecule>{
           toFile();
         
     }
+      
+      public void restoreState(List<Molecule> molecules){
+          mols=molecules;
+          toFile();
+      }
+      
     
       private void toFile(){//mantem arquivo atualizado apos cada operação, não o ideal para sistemas concorrentes
                  int i;  

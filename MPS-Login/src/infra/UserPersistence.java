@@ -10,7 +10,7 @@ import java.util.Map;
  * @author Renan Costa
  */
 public class UserPersistence {
-    private File arquivo = new File ("login.dat");
+    private static final File arquivo = new File ("login.dat");
     
     /**
      * resgata usuários de arquivo 
@@ -18,7 +18,7 @@ public class UserPersistence {
      * @throws java.io.FileNotFoundException  
      * @throws java.lang.ClassNotFoundException  
      */
-    public TreeMap<String,User> loadUsers() throws FileNotFoundException, IOException, ClassNotFoundException{
+    public static TreeMap<String,User> loadUsers() throws FileNotFoundException, IOException, ClassNotFoundException{
         TreeMap<String,User> users = new TreeMap<String,User>();
         FileInputStream input = new FileInputStream(arquivo);
         ObjectInputStream objectinput = new ObjectInputStream(input);
@@ -42,11 +42,14 @@ public class UserPersistence {
         return users;
     }
     
+    
+    
+    
     /**
      * Salva usuários no arquivo
      * @param users 
      */
-    public void saveUsers(TreeMap<String,User> users){
+    public static void saveUsers(TreeMap<String,User> users){
         int i;
     
     

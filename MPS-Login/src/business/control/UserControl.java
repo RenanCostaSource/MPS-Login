@@ -94,4 +94,8 @@ public class UserControl {
         users.remove(login);
     }
     
+    public void restoreState(TreeMap<String,User> state){
+       users=state;
+    }
+    
 }
