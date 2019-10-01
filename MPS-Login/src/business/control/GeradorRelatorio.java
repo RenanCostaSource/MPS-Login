@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public abstract class GeradorRelatorio {
     protected List<Molecule> mols;
     
-    public GeradorRelatorio() {
+    public GeradorRelatorio()  {
         
         System.out.println("funciona");
         try {
@@ -27,5 +27,5 @@ public abstract class GeradorRelatorio {
         }
     }
     
-    abstract void GerarRelatorio(); 
+    abstract void GerarRelatorio()throws IOException; 
 }

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Renan Costa
  */
-public abstract class Geradortxt {
+public abstract class Geradortxt extends GeradorRelatorio{
     protected List<Molecule> mols;
     
     public Geradortxt() {
@@ -29,7 +29,7 @@ public abstract class Geradortxt {
         }
         
     }
-    
+   @Override
     public void GerarRelatorio() throws IOException{
         FileWriter arq = new FileWriter("relatorio.txt");
         PrintWriter writeArq = new PrintWriter(arq);
